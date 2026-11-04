@@ -7,14 +7,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class DataHolder {
-    private ArrayList<String> dataList = new ArrayList<>();
+    private ArrayList<String> wordsList = new ArrayList<>();
 
 public DataHolder() throws IOException {
-    try (BufferedReader reader = new BufferedReader(new FileReader("dk/sea/wordsearch/dal/brit-a-z.txt"))){
+    try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/dk/sea/wordsearch/dal/brit-a-z.txt"))){
         String line = "";
         while((line = reader.readLine()) != null)
         {
-            dataList.add(line);
+            wordsList.add(line);
         }
         reader.close();
     }
@@ -23,6 +23,7 @@ public DataHolder() throws IOException {
         System.out.println("Error occured");
     }
 }
-
-
+public ArrayList<String> getWordsList(){
+    return this.wordsList;
+}
 }
